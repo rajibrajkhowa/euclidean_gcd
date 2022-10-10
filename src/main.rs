@@ -1,15 +1,24 @@
 use std::io;
-use std::process::exit;
+
 
 fn gcd(a: u64,b: u64) -> u64 {
+
+    if a == 0 {
+        return b;
+    }
+
+    if b == 0 {
+        return a;
+    }
+
+    if a == 0 && b == 0 {
+
+        return 0;
+    }
     if b > a {
         gcd(b,a)
     }
-    else if b == 0 || a == 0 || (a == 0 && b == 0) {
-        println!("Invalid argument to gcd function. The numbers must be non-zero");
 
-        exit(1);
-    }
     else {
         gcd(b,a%b)
     }
